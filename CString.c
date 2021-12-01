@@ -17,7 +17,7 @@ CString* cstring_new(const char* str)
     return result;
 }
 
-int getLength(CString* cstring)
+int cstring_length(CString* cstring)
 {
     return cstring->length;
 }
@@ -40,7 +40,7 @@ const char* cstring_getchars(CString* cstring)
     return cstring->string;
 }
 
-void free_mem(CString* cstring)
+void cstring_free(CString* cstring)
 {
     free(cstring->string);
     free(cstring);
@@ -50,7 +50,7 @@ int main()
 {
     // tests
     CString* cstring = cstring_new("Ala ma kota.");
-    assert(getLength(cstring) == 13);
+    assert(cstring_length(cstring) == 13);
     assert(cstring_getchar(cstring, 0) == 'A');
     assert(cstring_getchar(cstring, 1) == 'l');
     assert(cstring_getchar(cstring, 2) == 'a');
@@ -58,6 +58,6 @@ int main()
     assert(cstring_getchar(cstring, 0) == 'O');
     assert(cstring_getchar(cstring, 100) == -1);
 
-    free_mem(cstring);
+    cstring_free(cstring);
     return 0;
 }
