@@ -24,13 +24,13 @@ int cstring_length(CString* cstring)
 
 char cstring_getchar(CString* cstring, int index)
 {
-    if (index >= cstring->length) return -1;
+    if (index < 0 || index >= cstring->length) return -1;
     return cstring->string[index];
 }
 
 int cstring_setchar(CString* cstring, int index, char c)
 {
-    if (index >= cstring->length) return -1;
+    if (index < 0 || index >= cstring->length) return -1;
     cstring->string[index] = c;
     return 0;
 }
@@ -57,6 +57,7 @@ int main()
     cstring_setchar(cstring, 0, 'O');
     assert(cstring_getchar(cstring, 0) == 'O');
     assert(cstring_getchar(cstring, 100) == -1);
+    assert(cstring_getchar(cstring, -100) == -1);
 
     cstring_free(cstring);
     return 0;
