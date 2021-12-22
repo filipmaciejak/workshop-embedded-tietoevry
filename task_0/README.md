@@ -1,6 +1,6 @@
 ## Introduction
 
-This is the preliminary task for Embedded TietoEvry workshop
+The problem was to write a structure (char* wrapper) to simplify operations on strings to a single API. That way we don't have to edit arrays manually.
 
 ## Usage (Linux)
 
@@ -16,3 +16,4 @@ Now you can run it.
 ./out
 ```
 
+[Go back.](../README.md)
