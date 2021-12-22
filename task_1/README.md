@@ -19,4 +19,4 @@ cd two_sum
 make all
 ```
 
-[Go back.](../README.md)
+[Go back.](../README.md#workshop-embedded-tietoevry)
