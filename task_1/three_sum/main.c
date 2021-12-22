@@ -3,17 +3,19 @@
 #include <assert.h>
 #include "../interfaces/dynamic_array/array.h"
 
-int compare(const void *element1, const void *element2) 
+int compare(const void *ptr1, const void *ptr2) 
 {
-    int f = *((int*) element1);
-    int s = *((int*) element2);
-    if (f > s) return  1;
-    if (f < s) return -1;
+    int first = *((int*) ptr1);
+    int second = *((int*) ptr2);
+    
+    if (first > second) return  1;
+    if (first < second) return -1;
     return 0;
 }
 
-int *threeSum(int *array, int sum)
+int *three_sum(int *array, int sum)
 {
+    if (array == NULL) return NULL;
     int size = array_length(array);
 
     int *temp_array = malloc(sizeof(int) * size);
@@ -49,8 +51,9 @@ int main()
     int output[] = {4, 7, 9};
     int *arr = NULL;
     for (int i = 0; i < 8; ++i) array_push(arr, input[i]);
-    int *result = threeSum(arr, 20);
+    int *result = three_sum(arr, 20);
 
+    assert(result != NULL);
     assert(array_length(result) == 3);
     for (int i = 0; i < 3; ++i)
         assert(result[i] == output[i]);
