@@ -41,6 +41,8 @@ int *three_sum(int *array, int sum)
         ++index;
     }
 
+    free(temp_array);
+
     return result;
 }
 
@@ -49,6 +51,7 @@ int main()
     // tests
     int input[] = {2, 7, 4, 0, 9, 5, 1, 3};
     int output[] = {4, 7, 9};
+    
     int *arr = NULL;
     for (int i = 0; i < 8; ++i) array_push(arr, input[i]);
     int *result = three_sum(arr, 20);

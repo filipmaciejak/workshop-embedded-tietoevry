@@ -35,6 +35,8 @@ int *two_sum(int *array, int sum)
         array_push(result, temp_array[j]); --j;
     }
 
+    free(temp_array);
+
     return result;
 }
 
@@ -43,6 +45,7 @@ int main()
     // tests
     int input[] = {3, 5, 2, -4, 8, 11};
     int output[] = {-4, 11, 2, 5};
+    
     int *arr = NULL;
     for (int i = 0; i < 6; ++i) array_push(arr, input[i]);
     int *result = two_sum(arr, 7);
